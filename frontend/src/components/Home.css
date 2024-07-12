@@ -1,0 +1,25 @@
+.home {
+    text-align: center;
+  }
+
+.auth-buttons {
+    margin-top: 20px;
+  }
+
+.background{
+    background-image: url("https://my-angers.info/wp-content/uploads/2022/07/netflix-logo.webp");
+    background-size: 'cover';
+    background-position: 'center';
+    height: '100vh';
+}
+
+.image-box {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+}

@@ -1,0 +1,10 @@
+.movie-details {
+    text-align: center;
+  }
+
+.movie-details img {
+    max-width: 250px;
+    max-height: 250px;
+    height: auto;
+    margin-bottom: 10px;
+}
