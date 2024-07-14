@@ -2,24 +2,51 @@
     text-align: center;
   }
 
-.auth-buttons {
-    margin-top: 20px;
-  }
-
 .background{
-    background-image: url("https://my-angers.info/wp-content/uploads/2022/07/netflix-logo.webp");
+    background-image: "app/background.jpg";
     background-size: 'cover';
     background-position: 'center';
     height: '100vh';
 }
 
-.image-box {
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0;
-}
-
 body {
   font-family: Arial, sans-serif;
-  color: white;
+}
+
+.title{
+  padding-top: 5%;
+  color: rgb(255, 196, 0);
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  3px 3px 0 #000;  
+}
+
+.title.sub {
+  padding-top: 0%;
+  font-size : 28px;
+}
+
+.title.desc{
+  padding-top: 0%;
+  font-size: 20px;
+  margin-bottom: 100px;
+}
+
+.register {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.icon {
+  width: 150px;
+}
+
+button:active{
+  opacity: 0.90;
 }

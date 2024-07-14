@@ -1,24 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import MovieDetails from './MovieDetails';
-import BasketPopup from './BasketPopup';
-import "./Carousel.css"
+import Header from './Header';
+import { useNavigate } from 'react-router-dom';
+import "./Carousel.css";
+import { AppContext } from '../AppContext';
 
 const Carousel = () => {
   const [movies, setMovies] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const [basketItems, setBasketItems] = useState([]);
-  const [cartVisibility, setCartVisiblity] = useState(false);
+  const { loggedIn, basketItems, setBasketItems} = useContext(AppContext);
+  const navigate = useNavigate();
 
   const addToBasket = (item) => {
     setBasketItems([...basketItems, item]);
-  };
-
-  const removeFromBasket = (index) => {
-    setBasketItems(basketItems.filter((_, i) => i !== index));
   };
 
   useEffect(() => {
@@ -39,44 +34,26 @@ const Carousel = () => {
 
   return (
   <div>
-    <header style={{ position: 'fixed', top: 0, right: 0, padding: '10px' }}>
-      <button onClick={() => setCartVisiblity(true)} style={{ position: 'relative', background: 'none', border: 'none' }}>
-        <FontAwesomeIcon icon={faShoppingCart} size="2x" />
-        <span style={{
-          position: 'absolute',
-          top: '-10px',
-          right: '-10px',
-          background: 'red',
-          color: 'white',
-          borderRadius: '50%',
-          padding: '5px',
-          fontSize: '12px'
-        }}>
-          {basketItems.length}
-        </span>
-      </button>
-    </header>
-
-    <div className="carousel">
-      <button onClick={handlePrev}>Prev</button>
+    <Header/>
+    { loggedIn ? (    
+      <div className="carousel">
+        <button className="functionnality" onClick={() => handlePrev()}>
+          <img className="icon-size" src="./icons/prev.png" alt="login" />
+        </button>
       {movies.length > 0 && 
         <MovieDetails 
           movie={movies[currentIndex]} 
           addToBasket={addToBasket} 
           />}
-      <button onClick={handleNext}>Next</button>
-      {
-        <BasketPopup 
-           trigger = {cartVisibility}
-           setTrigger = {setCartVisiblity}
-           items = {basketItems} 
-           remove = {removeFromBasket} 
-         />
-       }
+        <button className="functionnality" onClick={() => handleNext()}>
+          <img className="icon-size" src="./icons/next.png" alt="login" />
+        </button>
     </div>
-  </div>
-
-  );
+    ) : (
+      navigate("../login")
+    )
+        }
+  </div>)
 };
 
 export default Carousel;

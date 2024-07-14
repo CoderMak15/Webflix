@@ -1,0 +1,40 @@
+.custom-navbar {
+      background: rgba(0, 0, 0, 0.445);
+      display: flex;
+      flex-direction: row;
+      height: 75px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+    }
+    
+    .custom-navbar .functionnalities {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .functionnality {
+      border: none;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+    }
+    
+    .icon-size {
+      width: 75px;
+      height: 75px;
+    }
+    
+    .home-logo-container {
+      width: 30px;
+      display: flex;
+      align-content: start;
+    }
+
+    .webflix-logo {
+      font-weight: bold;
+      color: orange;
+      position: absolute;
+      left: 10%;
+      font-size: 30px;
+    }

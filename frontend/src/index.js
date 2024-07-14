@@ -5,6 +5,14 @@ import Home from './components/Home';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Carousel from './components/Carousel';
+import { AppProvider } from './AppContext';
+
+const appStyle = {
+  backgroundImage: `url(${"app/background.jpg"})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  height: '100vh',
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([{
@@ -26,6 +34,10 @@ const router = createBrowserRouter([{
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AppProvider>
+      <div style={appStyle}>
+        <RouterProvider router={router} />
+      </div>
+    </AppProvider>
   </React.StrictMode>
 );

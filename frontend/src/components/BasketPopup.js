@@ -1,8 +1,14 @@
 import React from 'react';
 import "./BasketPopup.css"
 
-function BasketPopup(props){
-  return(
+function BasketPopup(props) {
+  const handlePurchase = () => {
+    props.setItems([]);
+    alert('Purchase completed successfully');
+    props.setTrigger(false);
+  };
+
+  return (
     <div className={`basket-popup-overlay ${props.trigger ? 'visible' : ''}`}>
       <div className="basket-popup-content">
         <button className="close-button" onClick={() => props.setTrigger(false)}>&times;</button>
@@ -14,9 +20,7 @@ function BasketPopup(props){
           <ul>
             {props.items.map((item, index) => (
               <li key={index} className="basket-item">
-                { 
-                  <img src={item.thumbnail} alt={item.name} className="thumbnail" /> 
-                }
+                <img src={item.thumbnail} alt={item.name} className="thumbnail" />
                 <div className="item-details">
                   <span>{item.name}</span>
                   <span>${item.price}</span>
@@ -25,6 +29,9 @@ function BasketPopup(props){
               </li>
             ))}
           </ul>
+        )}
+        {props.items.length > 0 && (
+          <button className="buy-button" onClick={handlePurchase}>Buy</button>
         )}
       </div>
     </div>
