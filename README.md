@@ -8,17 +8,17 @@ The project is divided into two main sections:
 - Frontend : Contains all scripts responsible for the web content, all objects are inside the components folder 
 
 Installation Steps and Requirements:
-
 - Requirements:
   - Node.js
 
-- Installation:
+- Server Installation:
   - Clone the project.
   - Open Command Prompt (cmd).
   - Navigate to the root directory of backend: cd root/backend.
   - Install the necessary packages: npm install.
   - Start the server: node server.js.
 
+- Web Server Installation:
   - Open another Command Prompt (cmd).
   - Navigate to the root directory of frontend: cd root/frontend.
   - Install the necessary packages: npm install.
